@@ -19,7 +19,13 @@
   var inputEl = document.getElementById("input-field");
   buttonEl.addEventListener("click", () => {
     fetchGithubRepo(inputEl.value, (repoDataReturned) => {
-      document.write(JSON.stringify(repoDataReturned));
+      document.getElementById("repoName").innerText = repoDataReturned.name;
+      document.getElementById("profilePic").src = repoDataReturned.owner.avatar_url;
+      document.getElementById("linkGitHubPage").href = repoDataReturned.html_url;
+      document.getElementById("linkGitHubPage").innerText = repoDataReturned.name;
+      document.getElementById("stargazers").innerText = repoDataReturned.stargazers_count;
+      document.getElementById("forks").innerText = repoDataReturned.forks_count;
+      document.getElementById("language").innerText = repoDataReturned.language;
     });
   });
 })();
